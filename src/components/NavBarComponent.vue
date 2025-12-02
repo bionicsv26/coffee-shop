@@ -9,7 +9,7 @@
             :src="require(`@/assets/logo/${links[0].icon}`)"
             :alt="links[0].icon"
           />
-        </router-link>
+        </router-link> 
       </li>
       <li class="header__item">
         <router-link :to="links[1].link">{{ links[1].text }}</router-link>

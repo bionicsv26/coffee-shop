@@ -69,12 +69,48 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
-              <shop-item-component />
-              <shop-item-component />
-              <shop-item-component />
-              <shop-item-component />
-              <shop-item-component />
-              <shop-item-component />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[0].title"
+                :price="coffee[0].price"
+                :country="coffee[0].country"
+                :img="coffee[0].img"
+              />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[1].title"
+                :price="coffee[1].price"
+                :country="coffee[1].country"
+                :img="coffee[1].img"
+              />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[2].title"
+                :price="coffee[2].price"
+                :country="coffee[2].country"
+                :img="coffee[2].img"
+              />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[3].title"
+                :price="coffee[3].price"
+                :country="coffee[3].country"
+                :img="coffee[3].img"
+              />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[4].title"
+                :price="coffee[4].price"
+                :country="coffee[4].country"
+                :img="coffee[4].img"
+              />
+              <product-card
+                classItem="shop__item"
+                :title="coffee[5].title"
+                :price="coffee[5].price"
+                :country="coffee[5].country"
+                :img="coffee[5].img"
+              />
             </div>
           </div>
         </div>
@@ -85,53 +121,53 @@
 
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
-import ShopItemComponent from "@/components/ShopItemComponent.vue";
+import ProductCard from "@/components/ProductCard.vue";
 export default {
-  components: { NavBarComponent, ShopItemComponent },
+  components: { NavBarComponent, ProductCard },
   data() {
     return {
-      links: [
+      coffee: [
         {
           id: 0,
           img: "coffee-1.jpg",
           title: "Solimo Coffee Beans 2kg",
           country: "Brazil",
-          price: "10.73$",
+          price: 10.73,
         },
         {
           id: 1,
           img: "coffee-2.jpg",
           title: "Presto Coffee Beans 1kg",
           country: "Brazil",
-          price: "15.99$",
+          price: 15.99,
         },
         {
           id: 2,
           img: "coffee-3.jpg",
           title: "AROMISTICO Coffee 1kg",
           country: "Brazil",
-          price: "6.99$",
+          price: 6.99,
         },
         {
           id: 3,
           img: "coffee-1.jpg",
           title: "Solimo Coffee Beans 2kg",
           country: "Brazil",
-          price: "10.73$",
+          price: 10.73,
         },
         {
           id: 4,
           img: "coffee-2.jpg",
           title: "Presto Coffee Beans 1kg",
           country: "Brazil",
-          price: "15.99$",
+          price: 15.99,
         },
         {
           id: 5,
           img: "coffee-3.jpg",
           title: "AROMISTICO Coffee 1kg",
           country: "Brazil",
-          price: "6.99$",
+          price: 6.99,
         },
       ],
     };

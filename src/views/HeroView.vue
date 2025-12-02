@@ -61,9 +61,24 @@
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
-              <best-item-component />
-              <best-item-component />
-              <best-item-component />
+              <product-card
+              classItem="best__item"
+                :title="bestsellers[0].title"
+                :price="bestsellers[0].price"
+                :img="bestsellers[0].img"
+              />
+              <product-card
+              classItem="best__item"
+                :title="bestsellers[1].title"
+                :price="bestsellers[1].price"
+                :img="bestsellers[1].img"
+              />
+              <product-card
+              classItem="best__item"
+                :title="bestsellers[2].title"
+                :price="bestsellers[2].price"
+                :img="bestsellers[2].img"
+              />
             </div>
           </div>
         </div>
@@ -74,29 +89,29 @@
 
 <script>
 import NavBarComponent from "@/components/NavBarComponent.vue";
-import BestItemComponent from "@/components/BestItemComponent.vue";
+import ProductCard from "@/components/ProductCard.vue";
 export default {
-  components: { NavBarComponent, BestItemComponent },
+  components: { NavBarComponent, ProductCard },
   data() {
     return {
-      links: [
+      bestsellers: [
         {
           id: 0,
           img: "coffee-1.jpg",
           title: "Solimo Coffee Beans 2kg",
-          price: "10.73$",
+          price: 10.73,
         },
         {
           id: 1,
           img: "coffee-2.jpg",
           title: "Presto Coffee Beans 1kg",
-          price: "15.99$",
+          price: 15.99,
         },
         {
           id: 2,
           img: "coffee-3.jpg",
           title: "AROMISTICO Coffee 1kg",
-          price: "6.99$",
+          price: 6.99,
         },
       ],
     };
