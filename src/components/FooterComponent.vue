@@ -15,8 +15,8 @@
               v-for="link in links.other"
               :key="link.id"
               classLink="footer__item"
-              :link="links.other.link"
-              :text="links.other.text"
+              :link="link.link"
+              :text="link.text"
             />
           </ul>
         </div>
