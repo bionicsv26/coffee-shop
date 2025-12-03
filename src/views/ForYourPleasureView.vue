@@ -49,46 +49,13 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
+                v-for="good in goods"
+                :key="good.id"
                 classItem="shop__item"
-                :title="goods[0].title"
-                :price="goods[0].price"
-                :country="goods[0].country"
-                :img="goods[0].img"
-              />
-              <product-card
-                classItem="shop__item"
-                :title="goods[1].title"
-                :price="goods[1].price"
-                :country="goods[1].country"
-                :img="goods[1].img"
-              />
-              <product-card
-                classItem="shop__item"
-                :title="goods[2].title"
-                :price="goods[2].price"
-                :country="goods[2].country"
-                :img="goods[2].img"
-              />
-              <product-card
-                classItem="shop__item"
-                :title="goods[3].title"
-                :price="goods[3].price"
-                :country="goods[3].country"
-                :img="goods[3].img"
-              />
-              <product-card
-                classItem="shop__item"
-                :title="goods[4].title"
-                :price="goods[4].price"
-                :country="goods[4].country"
-                :img="goods[4].img"
-              />
-              <product-card
-                classItem="shop__item"
-                :title="goods[5].title"
-                :price="goods[5].price"
-                :country="goods[5].country"
-                :img="goods[5].img"
+                :title="good.title"
+                :price="good.price"
+                :country="good.country"
+                :img="good.img"
               />
             </div>
           </div>
@@ -99,6 +66,7 @@
 </template>
 
 <script>
+import { v4 as uuidv4 } from "uuid";
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
 export default {
@@ -107,42 +75,42 @@ export default {
     return {
       goods: [
         {
-          id: 0,
+          id: uuidv4(),
           img: "coffee-1.jpg",
           title: "Solimo Coffee Beans 2kg",
           country: "Brazil",
           price: 10.73,
         },
         {
-          id: 1,
+          id: uuidv4(),
           img: "coffee-2.jpg",
           title: "Presto Coffee Beans 1kg",
           country: "Brazil",
           price: 15.99,
         },
         {
-          id: 2,
+          id: uuidv4(),
           img: "coffee-3.jpg",
           title: "AROMISTICO Coffee 1kg",
           country: "Brazil",
           price: 6.99,
         },
         {
-          id: 3,
+          id: uuidv4(),
           img: "coffee-1.jpg",
           title: "Solimo Coffee Beans 2kg",
           country: "Brazil",
           price: 10.73,
         },
         {
-          id: 4,
+          id: uuidv4(),
           img: "coffee-2.jpg",
           title: "Presto Coffee Beans 1kg",
           country: "Brazil",
           price: 15.99,
         },
         {
-          id: 5,
+          id: uuidv4(),
           img: "coffee-3.jpg",
           title: "AROMISTICO Coffee 1kg",
           country: "Brazil",
