@@ -31,16 +31,5 @@ export default {
       required: true,
     },
   },
-  // computed: {
-  //   titleClass() {
-  //     return `${classItem}-title`;
-  //   },
-  //   priceClass() {
-  //     return `${classItem}-price`;
-  //   },
-  //   countryClass() {
-  //     return `${classItem}-country`;
-  //   },
-  // },
 };
 </script>
