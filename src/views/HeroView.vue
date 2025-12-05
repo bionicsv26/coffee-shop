@@ -11,30 +11,38 @@
           <div class="col-lg-10 offset-lg-1">
             <h1 class="title-big">Everything You Love About Coffee</h1>
             <img
-              class="beanslogo"
-              src="@/assets/logo/Beans_logo.svg"
-              alt="Beans logo"
+                class="beanslogo"
+                src="@/assets/logo/Beans_logo.svg"
+                alt="Beans logo"
             />
             <div class="preview__subtitle">
               We makes every day full of energy and taste
             </div>
             <div class="preview__subtitle">Want to try our beans?</div>
-            <router-link to="/our-coffee" class="preview__btn"
-              >More</router-link
+            <a
+                href="./coffeepage.html"
+                class="preview__btn"
+                @click.prevent="smoothScroll"
+            >More
+            </a
             >
           </div>
         </div>
       </div>
     </div>
-    <section class="about">
+    <section
+        class="about"
+        id="about"
+        ref="about"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-6 offset-lg-3">
             <div class="title">About Us</div>
             <img
-              class="beanslogo"
-              src="@/assets/logo/Beans_logo_dark.svg"
-              alt="Beans logo"
+                class="beanslogo"
+                src="@/assets/logo/Beans_logo_dark.svg"
+                alt="Beans logo"
             />
             <div class="about__text">
               Extremity sweetness difficult behaviour he of. On disposal of as
@@ -57,18 +65,24 @@
     </section>
     <section class="best">
       <div class="container">
-        <div class="title">Our best</div>
+        <div
+            class="title"
+            ref="outBest"
+        >Our best
+        </div>
         <div class="row">
           <div class="col-lg-10 offset-lg-1">
             <div class="best__wrapper">
+
               <product-card
-                v-for="bestseller in bestsellers"
-                :key="bestseller.id"
-                classItem="best__item"
-                :title="bestseller.title"
-                :price="bestseller.price"
-                :img="bestseller.img"
+                  v-for="bestseller in bestsellers"
+                  :key="bestseller.id"
+                  classItem="best__item"
+                  :title="bestseller.title"
+                  :price="bestseller.price"
+                  :img="bestseller.img"
               />
+
             </div>
           </div>
         </div>
@@ -78,11 +92,14 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
+import {v4 as uuidv4} from "uuid";
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+
+import {scrollIntoView} from "seamless-scroll-polyfill";
+
 export default {
-  components: { NavBarComponent, ProductCard },
+  components: {NavBarComponent, ProductCard},
   data() {
     return {
       bestsellers: [
@@ -107,5 +124,13 @@ export default {
       ],
     };
   },
+  methods: {
+    smoothScroll() {
+      scrollIntoView(this.$refs.outBest, {
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+  }
 };
 </script>
