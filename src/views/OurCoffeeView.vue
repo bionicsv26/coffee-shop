@@ -77,7 +77,7 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
-                  v-for="item in goods"
+                  v-for="item in coffee"
                   :key="item.id"
                   classItem="shop__item"
                   :title="item.title"
@@ -100,8 +100,8 @@ import ProductCard from "@/components/ProductCard.vue";
 export default {
   components: {NavBarComponent, ProductCard},
   computed: {
-    goods() {
-      return this.$store.getters["getGoods"];
+    coffee() {
+      return this.$store.getters["getCoffee"];
     }
   }
 };
