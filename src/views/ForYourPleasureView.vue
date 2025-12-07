@@ -15,17 +15,17 @@
         <div class="row">
           <div class="col-lg-4 offset-2">
             <img
-              class="shop__girl"
-              src="@/assets/img/coffee_goods.jpg"
-              alt="girl"
+                class="shop__girl"
+                src="@/assets/img/coffee_goods.jpg"
+                alt="girl"
             />
           </div>
           <div class="col-lg-4">
             <div class="title">About our beans</div>
             <img
-              class="beanslogo"
-              src="@/assets/logo/Beans_logo_dark.svg"
-              alt="Beans logo"
+                class="beanslogo"
+                src="@/assets/logo/Beans_logo_dark.svg"
+                alt="Beans logo"
             />
             <div class="shop__text">
               Extremity sweetness difficult behaviour he of. On disposal of as
@@ -49,13 +49,13 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
-                v-for="good in goods"
-                :key="good.id"
-                classItem="shop__item"
-                :title="good.title"
-                :price="good.price"
-                :country="good.country"
-                :img="good.img"
+                  v-for="good in goods"
+                  :key="good.id"
+                  classItem="shop__item"
+                  :title="good.title"
+                  :price="good.price"
+                  :country="good.country"
+                  :img="good.img"
               />
             </div>
           </div>
@@ -66,58 +66,15 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+
 export default {
-  components: { NavBarComponent, ProductCard },
-  data() {
-    return {
-      goods: [
-        {
-          id: uuidv4(),
-          img: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          country: "Brazil",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          country: "Brazil",
-          price: 6.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          country: "Brazil",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          country: "Brazil",
-          price: 6.99,
-        },
-      ],
-    };
-  },
+  components: {NavBarComponent, ProductCard},
+  computed: {
+    goods() {
+      return this.$store.getters["getGoods"];
+    }
+  }
 };
 </script>

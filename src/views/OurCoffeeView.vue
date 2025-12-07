@@ -15,17 +15,17 @@
         <div class="row">
           <div class="col-lg-4 offset-2">
             <img
-              class="shop__girl"
-              src="@/assets/img/coffee_girl.jpg"
-              alt="girl"
+                class="shop__girl"
+                src="@/assets/img/coffee_girl.jpg"
+                alt="girl"
             />
           </div>
           <div class="col-lg-4">
             <div class="title">About our beans</div>
             <img
-              class="beanslogo"
-              src="@/assets/logo/Beans_logo_dark.svg"
-              alt="Beans logo"
+                class="beanslogo"
+                src="@/assets/logo/Beans_logo_dark.svg"
+                alt="Beans logo"
             />
             <div class="shop__text">
               Extremity sweetness difficult behaviour he of. On disposal of as
@@ -45,13 +45,20 @@
         <div class="line"></div>
         <div class="row">
           <div class="col-lg-4 offset-2">
-            <form action="#" class="shop__search">
-              <label class="shop__search-label" for="filter">Looking for</label>
+            <form
+                action="#"
+                class="shop__search"
+            >
+              <label
+                  class="shop__search-label"
+                  for="filter"
+              >Looking for
+              </label>
               <input
-                id="filter"
-                type="text"
-                placeholder="start typing here..."
-                class="shop__search-input"
+                  id="filter"
+                  type="text"
+                  placeholder="start typing here..."
+                  class="shop__search-input"
               />
             </form>
           </div>
@@ -70,13 +77,13 @@
           <div class="col-lg-10 offset-lg-1">
             <div class="shop__wrapper">
               <product-card
-                v-for="item in coffee"
-                :key="item.id"
-                classItem="shop__item"
-                :title="item.title"
-                :price="item.price"
-                :country="item.country"
-                :img="item.img"
+                  v-for="item in goods"
+                  :key="item.id"
+                  classItem="shop__item"
+                  :title="item.title"
+                  :price="item.price"
+                  :country="item.country"
+                  :img="item.img"
               />
             </div>
           </div>
@@ -87,58 +94,15 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
 import NavBarComponent from "@/components/NavBarComponent.vue";
 import ProductCard from "@/components/ProductCard.vue";
+
 export default {
-  components: { NavBarComponent, ProductCard },
-  data() {
-    return {
-      coffee: [
-        {
-          id: uuidv4(),
-          img: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          country: "Brazil",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          country: "Brazil",
-          price: 6.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-1.jpg",
-          title: "Solimo Coffee Beans 2kg",
-          country: "Brazil",
-          price: 10.73,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-2.jpg",
-          title: "Presto Coffee Beans 1kg",
-          country: "Brazil",
-          price: 15.99,
-        },
-        {
-          id: uuidv4(),
-          img: "coffee-3.jpg",
-          title: "AROMISTICO Coffee 1kg",
-          country: "Brazil",
-          price: 6.99,
-        },
-      ],
-    };
-  },
+  components: {NavBarComponent, ProductCard},
+  computed: {
+    goods() {
+      return this.$store.getters["getGoods"];
+    }
+  }
 };
 </script>
