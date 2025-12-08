@@ -1,35 +1,38 @@
 <template>
-  <div :class="classItem">
-    <img :src="require(`@/assets/img/${img}`)" :alt="img" />
-    <div :class="`${classItem}-title`">{{ title }}</div>
-    <div v-if="country" :class="`${classItem}-country`">{{ country }}</div>
-    <div :class="`${classItem}-price`">{{ price }}$</div>
+  <div
+      :class="classItem"
+      @click="onEmmit(card.id)"
+  >
+    <img
+        :src="require(`@/assets/img/${card.img}`)"
+        :alt="card.img"
+    />
+    <div :class="`${classItem}-title`">{{ card.title }}</div>
+    <div
+        v-if="card.country"
+        :class="`${classItem}-country`"
+    >{{ card.country }}
+    </div>
+    <div :class="`${classItem}-price`">{{ card.price | addCurrency }}</div>
   </div>
 </template>
 
 <script>
 export default {
   props: {
-    title: {
-      type: String,
-      required: true,
-    },
-    price: {
-      type: Number,
-      required: true,
-    },
-    country: {
-      type: String,
-      required: false,
-    },
-    img: {
-      type: String,
-      required: true,
-    },
     classItem: {
       type: String,
       required: true,
     },
+    card: {
+      type: Object,
+      required: true,
+    }
   },
+  methods: {
+    onEmmit(id) {
+      this.$emit('onNavigate', id);
+    }
+  }
 };
 </script>

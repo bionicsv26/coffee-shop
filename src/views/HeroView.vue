@@ -75,14 +75,11 @@
             <div class="best__wrapper">
 
               <product-card
-                  v-for="bestseller in bestsellers"
-                  :key="bestseller.id"
+                  v-for="card in bestsellers"
+                  :key="card.id"
                   classItem="best__item"
-                  :title="bestseller.title"
-                  :price="bestseller.price"
-                  :img="bestseller.img"
+                  :card="card"
               />
-
             </div>
           </div>
         </div>
